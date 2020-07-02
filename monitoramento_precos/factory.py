@@ -1,11 +1,17 @@
 from .magalu import Magalu
 from .fastshop import Fastshop
 from .americanas import Americanas
+from .casasbahia import CasasBahia
+
+from .helpers import get_logger
+
+logger = get_logger()
 
 interface = {
     "FASTSHOP": Fastshop,
     "AMERICANAS": Americanas,
-    "MAGALU": Magalu
+    "MAGALU": Magalu,
+    "CASASBAHIA": CasasBahia
 }
 
 
@@ -14,13 +20,22 @@ class Factory:
         self.instance = interface[conf.name](conf)
 
     def fetch_price(self):
-        self.instance.fetch_price()
+        try:
+            self.instance.fetch_price()
+        except Exception as exc:
+            logger.warning(f'Error on fetch price for {type(self.instance).__name__}: {exc}')
 
     def compare(self):
         self.instance.compare()
 
     def notify(self):
-        self.instance.notify()
+        try:
+            self.instance.notify()
+        except Exception as exc:
+            logger.warning(f'Error on notify price - {type(self.instance).__name__}: {exc}')
 
     def update_variation(self):
-        self.instance.update_variation()
+        try:
+            self.instance.update_variation()
+        except Exception as exc:
+            logger.warning(f'Error on update variation - {type(self.instance).__name__}: {exc}')

@@ -1,5 +1,5 @@
-from monitor_precos.dao import Dao
-from monitor_precos.factory import Factory
+from monitoramento_precos.dao import Dao
+from monitoramento_precos.factory import Factory
 
 
 def main():
