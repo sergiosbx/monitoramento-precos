@@ -23,7 +23,7 @@ class Processor(ABC):
             self.accomplished = Compare(self.conf, self.price).execute()
 
     def update_variation(self):
-        if safe_float(self.price) != safe_float(self.conf.last_price):
+        if self.price and safe_float(self.price) != safe_float(self.conf.last_price):
             logger.info(f"[{self.conf.name}] ({self.conf.description}) :: {self.conf.last_price} -> {self.price}")
             Dao().insert_price_varation(self.conf.stores_products_id, self.price)
 

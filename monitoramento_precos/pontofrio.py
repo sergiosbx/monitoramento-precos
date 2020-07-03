@@ -5,7 +5,7 @@ from .viavarejo import ViaVarejo
 from .helpers import sanitize_price, AGENT
 
 
-class CasasBahia(ViaVarejo):
+class PontoFrio(ViaVarejo):
     def __init__(self, conf):
         self.conf = conf
         super().__init__(conf)

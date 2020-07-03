@@ -7,7 +7,7 @@ from .b2w import B2w
 from .processor import Processor
 from .helpers import safe_element_value, sanitize_price, AGENT
 
-class Americanas(B2w):
+class Shoptime(B2w):
     def __init__(self, conf):
         self.conf = conf
         super().__init__(conf)

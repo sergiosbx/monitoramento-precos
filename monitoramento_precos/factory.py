@@ -1,5 +1,10 @@
+from .extra import Extra
 from .magalu import Magalu
 from .fastshop import Fastshop
+from .shoptime import Shoptime
+from .pontofrio import PontoFrio
+from .soubarato import Soubarato
+from .submarino import Submarino
 from .americanas import Americanas
 from .casasbahia import CasasBahia
 
@@ -10,8 +15,13 @@ logger = get_logger()
 interface = {
     "FASTSHOP": Fastshop,
     "AMERICANAS": Americanas,
+    "SHOPTIME": Shoptime,
     "MAGALU": Magalu,
-    "CASASBAHIA": CasasBahia
+    "CASASBAHIA": CasasBahia,
+    "EXTRA": Extra,
+    "PONTOFRIO": PontoFrio,
+    "SUBMARINO": Submarino,
+    "SOUBARATO": Soubarato
 }
 
 
