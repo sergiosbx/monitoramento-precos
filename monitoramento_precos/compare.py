@@ -1,7 +1,10 @@
+from .helpers import safe_float
+
+
 class Compare:
     def __init__(self, conf, price):
         self.price = price
-        self.last_price = conf.last_price
+        self.last_price = safe_float(conf.last_price, 0.0)
         self.parameter = conf.parameter
         self.comparison_type = conf.comparison_type.lower()
 

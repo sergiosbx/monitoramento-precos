@@ -8,7 +8,7 @@ with last_varation_data as (
 	from variations v
 	inner join last_varation_data lvd on lvd.id = v.stores_products_id and	v."snapshot" = lvd."snapshot"
 )
-select r.email, r.comparison_type , r."parameter", v.value as last_price, sp.id as stores_products_id, p.description, sp.api_product_code, s.*
+select r.email, r.comparison_type , r."parameter", v.value as last_price, sp.id as stores_products_id, p.id as product_id, p.description, sp.api_product_code, sp.anchor, s.*
 from stores_products sp
 inner join stores s on s."name"  = sp.store
 inner join products p on p.id  = sp.product_id

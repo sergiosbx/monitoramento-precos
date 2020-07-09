@@ -1,7 +1,7 @@
 import requests
 
-from .processor import Processor
-from .helpers import sanitize_price
+from monitoramento_precos.processor import Processor
+from monitoramento_precos.helpers import sanitize_price
 
 
 class Fastshop(Processor):
@@ -13,4 +13,5 @@ class Fastshop(Processor):
         call = self.conf.api.format(api_product_code=self.conf.api_product_code)
         result = requests.get(url=call)
         if result.status_code == 200:
-            self.price = sanitize_price(result.json().get('priceData', {}).get('offerPriceValue', '0.0'))
+            price = result.json().get('priceData', {}).get('offerPriceValue', '0.0')
+            self.price = sanitize_price(price=price, brazillian_currency=False)

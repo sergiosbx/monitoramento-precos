@@ -28,3 +28,11 @@ class Dao():
                 .set(field='value', value=price) \
                 .where(field='stores_products_id', value=stores_products_id) \
                 .execute()
+
+    def remove_user_monitoring(self, email, product_id):
+        with self.connect() as db:
+            db.print_sql = True
+            db.delete(table='receivers') \
+                .where(field='email', value=email) \
+                .where(field='product_id', value=product_id) \
+                .execute()

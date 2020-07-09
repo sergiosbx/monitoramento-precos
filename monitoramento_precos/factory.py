@@ -1,12 +1,17 @@
-from .extra import Extra
-from .magalu import Magalu
-from .fastshop import Fastshop
-from .shoptime import Shoptime
-from .pontofrio import PontoFrio
-from .soubarato import Soubarato
-from .submarino import Submarino
-from .americanas import Americanas
-from .casasbahia import CasasBahia
+from .stores.extra import Extra
+from .stores.kabum import Kabum
+from .stores.magalu import Magalu
+from .stores.pichau import Pichau
+from .stores.fastshop import Fastshop
+from .stores.shoptime import Shoptime
+from .stores.terabyte import Terabyte
+from .stores.carrefour import Carrefour
+from .stores.pontofrio import PontoFrio
+from .stores.soubarato import Soubarato
+from .stores.submarino import Submarino
+from .stores.americanas import Americanas
+from .stores.casasbahia import CasasBahia
+from .stores.fallenstore import FallenStore
 
 from .helpers import get_logger
 
@@ -21,7 +26,12 @@ interface = {
     "EXTRA": Extra,
     "PONTOFRIO": PontoFrio,
     "SUBMARINO": Submarino,
-    "SOUBARATO": Soubarato
+    "SOUBARATO": Soubarato,
+    "CARREFOUR": Carrefour,
+    "TERABYTE": Terabyte,
+    "KABUM": Kabum,
+    "PICHAU": Pichau,
+    "FALLENSTORE": FallenStore,
 }
 
 

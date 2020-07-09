@@ -1,6 +1,6 @@
 import requests
 
-from .processor import Processor
+from monitoramento_precos.processor import Processor
 
 
 class Magalu(Processor):
