@@ -1,8 +1,12 @@
 from monitoramento_precos.dao import Dao
 from monitoramento_precos.factory import Factory
+from monitoramento_precos.helpers import get_logger
+
+logger = get_logger()
 
 
 def main():
+    logger.info("Starting process...")
     datas = Dao().load_data()
     for conf in datas:
         processor = Factory(conf)
@@ -10,7 +14,4 @@ def main():
         processor.compare()
         processor.update_variation()
         processor.notify()
-
-
-if __name__ == "__main__":
-    main()
+    logger.info("Finish process.")
