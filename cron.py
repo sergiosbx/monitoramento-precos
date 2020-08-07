@@ -9,7 +9,7 @@ logger = get_logger()
 scheduler = BlockingScheduler()
 
 
-@scheduler.scheduled_job('interval', minutes='3')
+@scheduler.scheduled_job('interval', minutes=5)
 def print_data():
     data = datetime.now()
     logger.warning(f'JOB CHAMADA {data}')
