@@ -38,6 +38,7 @@ interface = {
 class Factory:
     def __init__(self, conf):
         self.instance = interface[conf.name](conf)
+        logger.info(f"{conf.name}: {conf.product_id}")
 
     def fetch_price(self):
         try:
