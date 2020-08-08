@@ -1,20 +1,18 @@
-import multiprocessing
-from multiprocessing.dummy import Pool as ThreadPool
+import multiprocessing.dummy
 
 from monitoramento_precos.dao import Dao
 from monitoramento_precos.factory import Factory
 from monitoramento_precos.helpers import get_logger
 
-pool = ThreadPool(8)
 
 logger = get_logger()
 
 
 def main():
-    print(multiprocessing.cpu_count())
     logger.info("Starting process...")
     datas = Dao().load_data()
-    pool.map(process, datas)
+    with multiprocessing.Pool(8) as threadPool:
+        threadPool.map(process, datas)
     logger.info("Finish process.")
 
 
