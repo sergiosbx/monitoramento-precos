@@ -16,7 +16,7 @@ class Scraper(Processor):
     def fetch_price(self):
         call = self.conf.api.format(api_product_code=self.conf.api_product_code)
         request = Request(url=call, headers={'User-Agent': AGENT})
-        with urlopen(request) as scrapy:
+        with urlopen(request, timeout=20) as scrapy:
             charset = scrapy.headers.get_content_charset()
             content = scrapy.read().decode(charset or 'utf-8')
             doc = html.fromstring(content)

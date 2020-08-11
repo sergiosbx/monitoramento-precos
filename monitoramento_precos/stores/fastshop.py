@@ -11,7 +11,7 @@ class Fastshop(Processor):
 
     def fetch_price(self):
         call = self.conf.api.format(api_product_code=self.conf.api_product_code)
-        result = requests.get(url=call)
+        result = requests.get(url=call, timeout=10)
         if result.status_code == 200:
             price = result.json().get('priceData', {}).get('offerPriceValue', '0.0')
             self.price = sanitize_price(price=price, brazillian_currency=False)

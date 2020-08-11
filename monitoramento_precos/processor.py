@@ -32,6 +32,7 @@ class Processor(ABC):
 
     def notify(self):
         if self.accomplished:
+            logger.info(f"Taget Accomplished - {self.conf.email} - {self.conf.description}")
             sender = MailSender(receiver=self.conf.email)
             sender.with_message(description=self.conf.description, price=self.price,
                                 last_price=self.conf.last_price, anchor=self.conf.anchor)
