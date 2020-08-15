@@ -1,7 +1,6 @@
 from requests_xml import XMLSession
 
 from monitoramento_precos.processor import Processor
-from monitoramento_precos.helpers import sanitize_price, AGENT
 
 
 class ViaVarejo(Processor):
