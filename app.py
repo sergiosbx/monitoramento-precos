@@ -16,6 +16,14 @@ def main():
     logger.info("Finish process.")
 
 
+def singlemain():
+    logger.info("Starting process...")
+    datas = Dao().load_data()
+    for conf in datas:
+        process(conf=conf)
+    logger.info("Finish process.")
+
+
 def process(conf):
     processor = Factory(conf)
     processor.fetch_price()
