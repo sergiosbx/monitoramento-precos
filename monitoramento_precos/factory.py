@@ -44,7 +44,10 @@ class Factory:
         try:
             self.instance.fetch_price()
         except Exception as exc:
-            logger.warning(f'Error on fetch price for {type(self.instance).__name__}: {exc}')
+            try:
+                self.instance.fetch_price()
+            except Exception:
+                logger.warning(f'Error on fetch price for {type(self.instance).__name__}: {exc}')
 
     def compare(self):
         self.instance.compare()
